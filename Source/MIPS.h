@@ -136,6 +136,7 @@ public:
 	MIPSSTATE m_State;
 
 	void* m_vuMem = nullptr;
+	void* m_memoryLookup = nullptr;
 
 	CMIPSArchitecture* m_pArch = nullptr;
 	CMIPSCoprocessor* m_pCOP[4];

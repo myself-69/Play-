@@ -176,6 +176,22 @@ if(TARGET_PLATFORM_WIN32)
 
 endif()
 
+find_package(SQLite3)
+if(NOT SQLITE3_FOUND)
+	MESSAGE("-- Using Provided sqlite3 source")
+	if(NOT TARGET sqlite3static)
+		add_subdirectory(
+			${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/build_cmake/sqlite-3.20.1
+			${CMAKE_CURRENT_BINARY_DIR}/sqlite-3.20.1
+		)
+	endif()
+	include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/sqlite-3.20.1)
+	list(APPEND PROJECT_LIBS sqlite3static)
+else()
+	include_directories(${SQLITE3_INCLUDE_DIRS})
+	list(APPEND PROJECT_LIBS ${SQLITE3_LIBRARIES})
+endif()
+
 if(NOT TARGET Boost::boost)
 	add_subdirectory(
 		${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/boost-cmake
@@ -556,6 +572,10 @@ set(COMMON_SRC_FILES
 	../Source/StructCollectionStateFile.h
 	../Source/StructFile.cpp
 	../Source/StructFile.h
+	../Source/ui_shared/BootablesDbClient.cpp
+	../Source/ui_shared/BootablesDbClient.h
+	../Source/ui_shared/BootablesProcesses.cpp
+	../Source/ui_shared/BootablesProcesses.h
 	../Source/Utils.cpp
 	../Source/Utils.h
 	../Source/VirtualPad.cpp

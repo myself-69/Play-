@@ -576,6 +576,8 @@ set(COMMON_SRC_FILES
 	../Source/ui_shared/BootablesDbClient.h
 	../Source/ui_shared/BootablesProcesses.cpp
 	../Source/ui_shared/BootablesProcesses.h
+	../Source/ui_shared/LocalGamesDbClient.cpp
+	../Source/ui_shared/LocalGamesDbClient.h
 	../Source/Utils.cpp
 	../Source/Utils.h
 	../Source/VirtualPad.cpp

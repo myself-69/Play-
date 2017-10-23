@@ -115,6 +115,14 @@ if (NOT TARGET Framework_OpenGl)
 endif()
 list(APPEND PROJECT_LIBS Framework_OpenGl)
 
+if (NOT TARGET Framework_Http)
+	add_subdirectory(
+		${CMAKE_CURRENT_SOURCE_DIR}/../../Framework/build_cmake/FrameworkHttp
+		${CMAKE_CURRENT_BINARY_DIR}/FrameworkHttp
+	)
+endif()
+list(APPEND PROJECT_LIBS Framework_Http)
+
 if(TARGET_PLATFORM_UNIX)
         find_package(LIBEVDEV REQUIRED)
 		include_directories(${LIBEVDEV_INCLUDE_DIR})
@@ -173,6 +181,7 @@ if(TARGET_PLATFORM_WIN32)
 	endif()
 	
 	list(APPEND PROJECT_LIBS comctl32 uxtheme opengl32 glu32 dinput8 d3d9 vfw32 winmm gdiplus Boost::date_time)
+	list(APPEND PROJECT_LIBS wininet)
 
 endif()
 
@@ -578,6 +587,8 @@ set(COMMON_SRC_FILES
 	../Source/ui_shared/BootablesProcesses.h
 	../Source/ui_shared/LocalGamesDbClient.cpp
 	../Source/ui_shared/LocalGamesDbClient.h
+	../Source/ui_shared/TheGamesDbClient.cpp
+	../Source/ui_shared/TheGamesDbClient.h
 	../Source/Utils.cpp
 	../Source/Utils.h
 	../Source/VirtualPad.cpp

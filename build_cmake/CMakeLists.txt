@@ -821,7 +821,6 @@ if(TARGET_PLATFORM_IOS)
 	set (OSX_SOURCES
 		../Source/ui_ios/AppDelegate.mm
 		../Source/ui_ios/BackgroundLayer.m
-		../Source/ui_ios/CollectionView.m
 		../Source/ui_ios/CoverViewCell.m
 		../Source/ui_ios/CoverViewController.m
 		../Source/ui_ios/EmulatorViewController.mm
@@ -830,7 +829,6 @@ if(TARGET_PLATFORM_IOS)
 		../Source/ui_ios/IosUtils.cpp
 		../Source/ui_ios/main.mm
 		../Source/ui_ios/SettingsViewController.mm
-		../Source/ui_ios/SqliteDatabase.m
 		../Source/ui_ios/VirtualPadButton.mm
 		../Source/ui_ios/VirtualPadItem.mm
 		../Source/ui_ios/VirtualPadStick.mm
@@ -840,7 +838,6 @@ if(TARGET_PLATFORM_IOS)
 	set (OSX_HEADERS
 		../Source/ui_ios/AppDelegate.h
 		../Source/ui_ios/BackgroundLayer.h
-		../Source/ui_ios/CollectionView.h
 		../Source/ui_ios/CoverViewCell.h
 		../Source/ui_ios/CoverViewController.h
 		../Source/ui_ios/EmulatorViewController.h
@@ -848,7 +845,6 @@ if(TARGET_PLATFORM_IOS)
 		../Source/ui_ios/GSH_OpenGLiOS.h
 		../Source/ui_ios/IosUtils.h
 		../Source/ui_ios/SettingsViewController.h
-		../Source/ui_ios/SqliteDatabase.h
 		../Source/ui_ios/VirtualPadButton.h
 		../Source/ui_ios/VirtualPadItem.h
 		../Source/ui_ios/VirtualPadStick.h

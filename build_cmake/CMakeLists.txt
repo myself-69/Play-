@@ -826,7 +826,6 @@ if(TARGET_PLATFORM_IOS)
 		../Source/ui_ios/EmulatorViewController.mm
 		../Source/ui_ios/GlEsView.mm
 		../Source/ui_ios/GSH_OpenGLiOS.cpp
-		../Source/ui_ios/IosUtils.cpp
 		../Source/ui_ios/main.mm
 		../Source/ui_ios/SettingsViewController.mm
 		../Source/ui_ios/VirtualPadButton.mm
@@ -843,7 +842,6 @@ if(TARGET_PLATFORM_IOS)
 		../Source/ui_ios/EmulatorViewController.h
 		../Source/ui_ios/GlEsView.h
 		../Source/ui_ios/GSH_OpenGLiOS.h
-		../Source/ui_ios/IosUtils.h
 		../Source/ui_ios/SettingsViewController.h
 		../Source/ui_ios/VirtualPadButton.h
 		../Source/ui_ios/VirtualPadItem.h

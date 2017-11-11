@@ -113,7 +113,7 @@ if (NOT TARGET Framework_OpenGl)
 		${CMAKE_CURRENT_BINARY_DIR}/FrameworkOpenGl
 	)
 endif()
-list(APPEND PROJECT_LIBS Framework_OpenGl)
+list(INSERT PROJECT_LIBS 0 Framework_OpenGl)
 
 if (NOT TARGET Framework_Http)
 	add_subdirectory(
@@ -121,7 +121,7 @@ if (NOT TARGET Framework_Http)
 		${CMAKE_CURRENT_BINARY_DIR}/FrameworkHttp
 	)
 endif()
-list(APPEND PROJECT_LIBS Framework_Http)
+list(INSERT PROJECT_LIBS 0 Framework_Http)
 
 if(TARGET_PLATFORM_UNIX)
         find_package(LIBEVDEV REQUIRED)

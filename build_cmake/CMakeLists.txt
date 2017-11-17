@@ -905,6 +905,7 @@ endif(TARGET_PLATFORM_IOS)
 if(TARGET_PLATFORM_ANDROID)
 
 	set(ANDROID_SRC_FILES
+		../Source/ui_android/BootablesInterop.cpp
 		../Source/ui_android/com_virtualapplications_play_Bootable.cpp
 		../Source/ui_android/com_virtualapplications_play_Bootable.h
 		../Source/ui_android/GSH_OpenGLAndroid.cpp

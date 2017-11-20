@@ -107,7 +107,7 @@ if (NOT TARGET Framework)
 endif()
 list(APPEND PROJECT_LIBS Framework)
 
-if (NOT TARGET Framework_OpenGl)
+if(NOT TARGET Framework_OpenGl)
 	add_subdirectory(
 		${CMAKE_CURRENT_SOURCE_DIR}/../../Framework/build_cmake/FrameworkOpenGl
 		${CMAKE_CURRENT_BINARY_DIR}/FrameworkOpenGl
@@ -115,7 +115,7 @@ if (NOT TARGET Framework_OpenGl)
 endif()
 list(INSERT PROJECT_LIBS 0 Framework_OpenGl)
 
-if (NOT TARGET Framework_Http)
+if(NOT TARGET Framework_Http)
 	add_subdirectory(
 		${CMAKE_CURRENT_SOURCE_DIR}/../../Framework/build_cmake/FrameworkHttp
 		${CMAKE_CURRENT_BINARY_DIR}/FrameworkHttp

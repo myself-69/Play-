@@ -123,6 +123,16 @@ if(NOT TARGET Framework_Http)
 endif()
 list(INSERT PROJECT_LIBS 0 Framework_Http)
 
+if(TARGET_PLATFORM_ANDROID)
+	if(NOT TARGET Framework_Sqlite)
+		add_subdirectory(
+			${CMAKE_CURRENT_SOURCE_DIR}/../../Framework/build_cmake/FrameworkSqlite
+			${CMAKE_CURRENT_BINARY_DIR}/FrameworkSqlite
+		)
+	endif()
+	list(INSERT PROJECT_LIBS 0 Framework_Sqlite)
+endif()
+
 if(TARGET_PLATFORM_UNIX)
         find_package(LIBEVDEV REQUIRED)
 		include_directories(${LIBEVDEV_INCLUDE_DIR})

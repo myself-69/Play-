@@ -114,10 +114,8 @@ void CPH_HidMacOSX::InputValueCallback(IOHIDValueRef valueRef)
 	uint32 usagePage = IOHIDElementGetUsagePage(elementRef);
 	CFIndex state = IOHIDValueGetIntegerValue(valueRef);
 	if(usagePage != kHIDPage_KeyboardOrKeypad) return;
-	for(auto bindingIterator(std::begin(m_bindings));
-	    bindingIterator != std::end(m_bindings); bindingIterator++)
+	for(const auto& binding : m_bindings)
 	{
-		const auto& binding = (*bindingIterator);
 		if(!binding) continue;
 		binding->ProcessEvent(usage, state);
 	}
@@ -128,10 +126,6 @@ void CPH_HidMacOSX::InputValueCallback(IOHIDValueRef valueRef)
 CPH_HidMacOSX::CSimpleBinding::CSimpleBinding(uint32 keyCode)
     : m_keyCode(keyCode)
     , m_state(0)
-{
-}
-
-CPH_HidMacOSX::CSimpleBinding::~CSimpleBinding()
 {
 }
 
@@ -153,10 +147,6 @@ CPH_HidMacOSX::CSimulatedAxisBinding::CSimulatedAxisBinding(uint32 negativeKeyCo
     , m_positiveKeyCode(positiveKeyCode)
     , m_negativeState(0)
     , m_positiveState(0)
-{
-}
-
-CPH_HidMacOSX::CSimulatedAxisBinding::~CSimulatedAxisBinding()
 {
 }
 

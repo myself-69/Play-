@@ -1,5 +1,4 @@
-#ifndef _PH_HIDMACOSX_H_
-#define _PH_HIDMACOSX_H_
+#pragma once
 
 #include "../PadHandler.h"
 #import <IOKit/hid/IOHIDLib.h>
@@ -10,7 +9,7 @@ public:
 	CPH_HidMacOSX();
 	virtual ~CPH_HidMacOSX();
 
-	void Update(uint8*);
+	void Update(uint8*) override;
 
 	static FactoryFunction GetFactoryFunction();
 
@@ -18,12 +17,9 @@ private:
 	class CBinding
 	{
 	public:
-		virtual ~CBinding()
-		{
-		}
+		virtual ~CBinding() = default;
 
 		virtual void ProcessEvent(uint32, uint32) = 0;
-
 		virtual uint32 GetValue() const = 0;
 	};
 
@@ -33,11 +29,9 @@ private:
 	{
 	public:
 		CSimpleBinding(uint32);
-		virtual ~CSimpleBinding();
 
-		virtual void ProcessEvent(uint32, uint32);
-
-		virtual uint32 GetValue() const;
+		void ProcessEvent(uint32, uint32) override;
+		uint32 GetValue() const override;
 
 	private:
 		uint32 m_keyCode;
@@ -48,11 +42,9 @@ private:
 	{
 	public:
 		CSimulatedAxisBinding(uint32, uint32);
-		virtual ~CSimulatedAxisBinding();
 
-		virtual void ProcessEvent(uint32, uint32);
-
-		virtual uint32 GetValue() const;
+		void ProcessEvent(uint32, uint32) override;
+		uint32 GetValue() const override;
 
 	private:
 		uint32 m_negativeKeyCode;
@@ -72,4 +64,3 @@ private:
 	BindingPtr m_bindings[PS2::CControllerInfo::MAX_BUTTONS];
 };
 
-#endif

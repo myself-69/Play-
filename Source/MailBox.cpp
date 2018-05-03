@@ -2,6 +2,7 @@
 #if defined(_WIN32)
 #include "win32/Win32Defs.h"
 #endif
+#include "string_format.h"
 
 bool CMailBox::IsPending() const
 {
@@ -22,6 +23,41 @@ void CMailBox::WaitForCall(unsigned int timeOut)
 	std::unique_lock<std::mutex> callLock(m_callMutex);
 	if(IsPending()) return;
 	m_waitCondition.wait_for(callLock, std::chrono::milliseconds(timeOut));
+}
+
+void CMailBox::WaitAndExecute()
+{
+	std::vector<MESSAGE> messages;
+	{
+		std::unique_lock<std::mutex> callLock(m_callMutex);
+		while(!IsPending())
+		{
+			m_waitCondition.wait(callLock);
+		}
+		while(!m_calls.empty())
+		{
+			messages.push_back(std::move(m_calls.front()));
+			m_calls.pop_front();
+			if(messages.rbegin()->sync) break;
+		}
+	}
+#if 0
+	if(messages.size() > 1)
+	{
+		auto message = string_format("Got more than one %d!\r\n", messages.size());
+		OutputDebugStringA(message.c_str());
+	}
+#endif
+	for(const auto& message : messages)
+	{
+		message.function();
+		if(message.sync)
+		{
+			std::lock_guard<std::mutex> waitLock(m_callMutex);
+			m_callDone = true;
+			m_callFinished.notify_all();
+		}
+	}
 }
 
 void CMailBox::FlushCalls()

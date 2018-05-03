@@ -102,7 +102,7 @@ CGSHandler::CGSHandler()
 
 CGSHandler::~CGSHandler()
 {
-	m_threadDone = true;
+	m_mailBox.SendCall([this] { m_threadDone = true; });
 	m_thread.join();
 	delete[] m_pRAM;
 	delete[] m_pCLUT;
@@ -1664,11 +1664,15 @@ void CGSHandler::ThreadProc()
 {
 	while(!m_threadDone)
 	{
+#if 0
 		m_mailBox.WaitForCall(100);
 		while(m_mailBox.IsPending())
 		{
 			m_mailBox.ReceiveCall();
 		}
+#else
+		m_mailBox.WaitAndExecute();
+#endif
 	}
 }
 

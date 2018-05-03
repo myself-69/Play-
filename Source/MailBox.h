@@ -20,6 +20,8 @@ public:
 	void ReceiveCall();
 	void WaitForCall();
 	void WaitForCall(unsigned int);
+	
+	void WaitAndExecute();
 
 private:
 	struct MESSAGE

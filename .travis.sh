@@ -25,9 +25,9 @@ travis_before_install()
         sudo apt-get update -y
         sudo apt-get install libstdc++6 -y
 
-        wget http://dl.google.com/android/repository/android-ndk-r14-linux-x86_64.zip
-        unzip android-ndk-r14-linux-x86_64.zip>/dev/null
-        export ANDROID_NDK=$(pwd)/android-ndk-r14
+        wget http://dl.google.com/android/repository/android-ndk-r17-linux-x86_64.zip
+        unzip android-ndk-r17-linux-x86_64.zip>/dev/null
+        export ANDROID_NDK=$(pwd)/android-ndk-r17
         echo "ndk.dir=$ANDROID_NDK">./Play-/build_android/local.properties
 
         wget https://github.com/Commit451/android-cmake-installer/releases/download/1.1.0/install-cmake.sh

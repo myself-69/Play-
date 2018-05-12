@@ -3,29 +3,29 @@
 
 CPH_HidMacOSX::CPH_HidMacOSX()
 {
-	m_bindings[PS2::CControllerInfo::ANALOG_LEFT_X] = std::make_shared<CSimulatedAxisBinding>(kHIDUsage_KeyboardD, kHIDUsage_KeyboardG);
-	m_bindings[PS2::CControllerInfo::ANALOG_LEFT_Y] = std::make_shared<CSimulatedAxisBinding>(kHIDUsage_KeyboardR, kHIDUsage_KeyboardF);
+	m_bindings[PS2::CControllerInfo::ANALOG_LEFT_X] = std::make_shared<CSimulatedAxisBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardD, kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardG);
+	m_bindings[PS2::CControllerInfo::ANALOG_LEFT_Y] = std::make_shared<CSimulatedAxisBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardR, kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardF);
 
-	m_bindings[PS2::CControllerInfo::ANALOG_RIGHT_X] = std::make_shared<CSimulatedAxisBinding>(kHIDUsage_KeyboardH, kHIDUsage_KeyboardK);
-	m_bindings[PS2::CControllerInfo::ANALOG_RIGHT_Y] = std::make_shared<CSimulatedAxisBinding>(kHIDUsage_KeyboardU, kHIDUsage_KeyboardJ);
+	m_bindings[PS2::CControllerInfo::ANALOG_RIGHT_X] = std::make_shared<CSimulatedAxisBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardH, kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardK);
+	m_bindings[PS2::CControllerInfo::ANALOG_RIGHT_Y] = std::make_shared<CSimulatedAxisBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardU, kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardJ);
+	
+	m_bindings[PS2::CControllerInfo::START] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardReturnOrEnter);
+	m_bindings[PS2::CControllerInfo::SELECT] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardRightShift);
+	m_bindings[PS2::CControllerInfo::DPAD_LEFT] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardLeftArrow);
+	m_bindings[PS2::CControllerInfo::DPAD_RIGHT] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardRightArrow);
+	m_bindings[PS2::CControllerInfo::DPAD_UP] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardUpArrow);
+	m_bindings[PS2::CControllerInfo::DPAD_DOWN] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardDownArrow);
+	m_bindings[PS2::CControllerInfo::SQUARE] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardA);
+	m_bindings[PS2::CControllerInfo::CROSS] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardZ);
+	m_bindings[PS2::CControllerInfo::TRIANGLE] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardS);
+	m_bindings[PS2::CControllerInfo::CIRCLE] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_KeyboardX);
 
-	m_bindings[PS2::CControllerInfo::START] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardReturnOrEnter);
-	m_bindings[PS2::CControllerInfo::SELECT] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardRightShift);
-	m_bindings[PS2::CControllerInfo::DPAD_LEFT] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardLeftArrow);
-	m_bindings[PS2::CControllerInfo::DPAD_RIGHT] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardRightArrow);
-	m_bindings[PS2::CControllerInfo::DPAD_UP] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardUpArrow);
-	m_bindings[PS2::CControllerInfo::DPAD_DOWN] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardDownArrow);
-	m_bindings[PS2::CControllerInfo::SQUARE] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardA);
-	m_bindings[PS2::CControllerInfo::CROSS] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardZ);
-	m_bindings[PS2::CControllerInfo::TRIANGLE] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardS);
-	m_bindings[PS2::CControllerInfo::CIRCLE] = std::make_shared<CSimpleBinding>(kHIDUsage_KeyboardX);
-
-	m_bindings[PS2::CControllerInfo::L1] = std::make_shared<CSimpleBinding>(kHIDUsage_Keyboard1);
-	m_bindings[PS2::CControllerInfo::L2] = std::make_shared<CSimpleBinding>(kHIDUsage_Keyboard2);
-	m_bindings[PS2::CControllerInfo::L3] = std::make_shared<CSimpleBinding>(kHIDUsage_Keyboard3);
-	m_bindings[PS2::CControllerInfo::R1] = std::make_shared<CSimpleBinding>(kHIDUsage_Keyboard8);
-	m_bindings[PS2::CControllerInfo::R2] = std::make_shared<CSimpleBinding>(kHIDUsage_Keyboard9);
-	m_bindings[PS2::CControllerInfo::R3] = std::make_shared<CSimpleBinding>(kHIDUsage_Keyboard0);
+	m_bindings[PS2::CControllerInfo::L1] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_Keyboard1);
+	m_bindings[PS2::CControllerInfo::L2] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_Keyboard2);
+	m_bindings[PS2::CControllerInfo::L3] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_Keyboard3);
+	m_bindings[PS2::CControllerInfo::R1] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_Keyboard8);
+	m_bindings[PS2::CControllerInfo::R2] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_Keyboard9);
+	m_bindings[PS2::CControllerInfo::R3] = std::make_shared<CSimpleBinding>(kHIDPage_KeyboardOrKeypad, kHIDUsage_Keyboard0);
 
 	m_hidManager = IOHIDManagerCreate(kCFAllocatorDefault, 0);
 	{
@@ -110,28 +110,28 @@ void CPH_HidMacOSX::InputValueCallbackStub(void* context, IOReturn result, void*
 void CPH_HidMacOSX::InputValueCallback(IOHIDValueRef valueRef)
 {
 	IOHIDElementRef elementRef = IOHIDValueGetElement(valueRef);
-	uint32 usage = IOHIDElementGetUsage(elementRef);
 	uint32 usagePage = IOHIDElementGetUsagePage(elementRef);
+	uint32 usage = IOHIDElementGetUsage(elementRef);
 	CFIndex state = IOHIDValueGetIntegerValue(valueRef);
-	if(usagePage != kHIDPage_KeyboardOrKeypad) return;
 	for(const auto& binding : m_bindings)
 	{
 		if(!binding) continue;
-		binding->ProcessEvent(usage, state);
+		binding->ProcessEvent(usagePage, usage, state);
 	}
 }
 
 //---------------------------------------------------------------------------------
 
-CPH_HidMacOSX::CSimpleBinding::CSimpleBinding(uint32 keyCode)
-    : m_keyCode(keyCode)
-    , m_state(0)
+CPH_HidMacOSX::CSimpleBinding::CSimpleBinding(uint32 usagePage, uint32 usage)
+: m_usagePage(usagePage)
+, m_usage(usage)
 {
 }
 
-void CPH_HidMacOSX::CSimpleBinding::ProcessEvent(uint32 keyCode, uint32 state)
+void CPH_HidMacOSX::CSimpleBinding::ProcessEvent(uint32 usagePage, uint32 usage, uint32 state)
 {
-	if(keyCode != m_keyCode) return;
+	if(usagePage != m_usagePage) return;
+	if(usage != m_usage) return;
 	m_state = state;
 }
 
@@ -142,22 +142,28 @@ uint32 CPH_HidMacOSX::CSimpleBinding::GetValue() const
 
 //---------------------------------------------------------------------------------
 
-CPH_HidMacOSX::CSimulatedAxisBinding::CSimulatedAxisBinding(uint32 negativeKeyCode, uint32 positiveKeyCode)
-    : m_negativeKeyCode(negativeKeyCode)
-    , m_positiveKeyCode(positiveKeyCode)
-    , m_negativeState(0)
-    , m_positiveState(0)
+CPH_HidMacOSX::CSimulatedAxisBinding::CSimulatedAxisBinding(uint32 negativeUsagePage, uint32 negativeUsage, uint32 positiveUsagePage, uint32 positiveUsage)
+    : m_negativeUsagePage(negativeUsagePage)
+    , m_negativeUsage(negativeUsage)
+    , m_positiveUsagePage(positiveUsagePage)
+    , m_positiveUsage(positiveUsage)
 {
 }
 
-void CPH_HidMacOSX::CSimulatedAxisBinding::ProcessEvent(uint32 keyCode, uint32 state)
+void CPH_HidMacOSX::CSimulatedAxisBinding::ProcessEvent(uint32 usagePage, uint32 usage, uint32 state)
 {
-	if(keyCode == m_negativeKeyCode)
+	if(
+	   (usagePage == m_negativeUsagePage) &&
+	   (usage == m_negativeUsage)
+	   )
 	{
 		m_negativeState = state;
 	}
 
-	if(keyCode == m_positiveKeyCode)
+	if(
+	   (usagePage == m_positiveUsagePage) &&
+	   (usage == m_positiveUsage)
+	   )
 	{
 		m_positiveState = state;
 	}

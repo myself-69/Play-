@@ -45,11 +45,8 @@ CPH_HidMacOSX::~CPH_HidMacOSX()
 
 void CPH_HidMacOSX::Update(uint8* ram)
 {
-	for(auto listenerIterator(std::begin(m_listeners));
-	    listenerIterator != std::end(m_listeners); listenerIterator++)
+	for(auto* listener : m_listeners)
 	{
-		auto* listener(*listenerIterator);
-
 		for(unsigned int i = 0; i < PS2::CControllerInfo::MAX_BUTTONS; i++)
 		{
 			const auto& binding = m_bindings[i];

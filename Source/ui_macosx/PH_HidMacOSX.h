@@ -10,6 +10,7 @@ public:
 	virtual ~CPH_HidMacOSX();
 
 	void Update(uint8*) override;
+	uint32 GetBindingValue(PS2::CControllerInfo::BUTTON);
 
 	static FactoryFunction GetFactoryFunction();
 

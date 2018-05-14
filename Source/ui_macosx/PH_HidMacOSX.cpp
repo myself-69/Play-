@@ -65,6 +65,13 @@ void CPH_HidMacOSX::Update(uint8* ram)
 	}
 }
 
+uint32 CPH_HidMacOSX::GetBindingValue(PS2::CControllerInfo::BUTTON button)
+{
+	const auto& binding = m_bindings[button];
+	if(!binding) return 0;
+	return binding->GetValue();
+}
+
 CPadHandler::FactoryFunction CPH_HidMacOSX::GetFactoryFunction()
 {
 	//Needs to be created in the same thread as UI

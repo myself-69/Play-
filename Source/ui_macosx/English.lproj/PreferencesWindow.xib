@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController">
@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -39,11 +39,17 @@
                             <action selector="onToolBarButtonPressed:" target="-2" id="F4b-ar-aNK"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="A7A3FE41-A0A9-40BA-BED9-5B926DCFF48A" label="Controller" paletteLabel="Controller" tag="3" image="NSBluetoothTemplate" selectable="YES" id="lii-cl-mlD">
+                        <connections>
+                            <action selector="onToolBarButtonPressed:" target="-2" id="NWC-zn-dz5"/>
+                        </connections>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="rwX-i3-mrU"/>
                     <toolbarItem reference="czM-Ls-onj"/>
                     <toolbarItem reference="SRE-jX-uO8"/>
+                    <toolbarItem reference="lii-cl-mlD"/>
                 </defaultToolbarItems>
             </toolbar>
             <connections>
@@ -52,6 +58,7 @@
         </window>
     </objects>
     <resources>
+        <image name="NSBluetoothTemplate" width="7" height="14"/>
         <image name="NSComputer" width="32" height="32"/>
         <image name="NSFolder" width="32" height="32"/>
     </resources>

@@ -27,6 +27,8 @@ list(INSERT PROJECT_LIBS 0 gsh_opengl)
 set(OSX_SOURCES
 	ApplicationDelegate.mm
 	AudioSettingsViewController.mm
+	ControllerBindings.mm
+	ControllerSettingsViewController.mm
 	Globals.cpp
 	GSH_OpenGLMacOSX.cpp
 	main.mm
@@ -43,6 +45,8 @@ set(OSX_HEADERS
 	Purei_Prefix.pch
 	ApplicationDelegate.h
 	AudioSettingsViewController.h
+	ControllerBindings.h
+	ControllerSettingsViewController.h
 	Globals.h
 	GSH_OpenGLMacOSX.h
 	OutputWindowController.h
@@ -68,7 +72,9 @@ set(OSX_XIBS
 set(OSX_RES
 	${CMAKE_CURRENT_SOURCE_DIR}/AppIcon.icns
 	${CMAKE_CURRENT_SOURCE_DIR}/../../patches.xml
+	${CMAKE_CURRENT_SOURCE_DIR}/English.lproj/ControllerSettingsView.xib
 )
+
 # Add our Executable
 add_executable(Play MACOSX_BUNDLE ${OSX_SOURCES} ${OSX_HEADERS} ${OSX_RES})
 set_target_properties(Play PROPERTIES COMPILE_FLAGS "-x objective-c++ -fobjc-arc")
